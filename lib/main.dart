@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mybmicalculator/screens/input_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,17 +11,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF0A0E21),
         scaffoldBackgroundColor: Color(0xFF0A0E21),
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            primary: Colors.amber,
           ),
         ),
       ),
+      home: InputPage(),
     );
   }
 }
