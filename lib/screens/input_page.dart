@@ -63,6 +63,28 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               colour: cActiveBGCardColour,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: TextStyle(fontSize: 18, color: Color(0xFFEEE8E8)),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        '180',
+                        style: TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.w900),
+                      ),
+                      Text('cm'),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(
