@@ -18,6 +18,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 160;
+  int weight = 70;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,6 +120,19 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: cActiveBGCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('WEIGHT'),
+                        Text(
+                          weight.toString(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[],
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
