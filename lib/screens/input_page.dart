@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mybmicalculator/components/reusable_card.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -13,10 +14,47 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI Calculator'),
       ),
       body: Center(
-        child: Container(
-          child: Text('Hello World'),
-        ),
-      ),
+          child: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    colour: Color(0xFF1DE33),
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    colour: Color(0xFF1DE33),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ReusableCard(
+              colour: Color(0xFF1DE33),
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    colour: Color(0xFF1DE33),
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    colour: Color(0xFF1DE33),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

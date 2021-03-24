@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard({Key key}) : super(key: key);
+  final Color colour;
+  final Function onPress;
+  final Widget cardChild;
+
+  const ReusableCard({@required this.colour, this.onPress, this.cardChild});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print('Tapped');
-      },
+      onTap: onPress,
       child: Container(
         margin: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: colour,
           borderRadius: BorderRadius.circular(10.0),
         ),
+        child: cardChild,
       ),
     );
   }
