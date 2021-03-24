@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mybmicalculator/components/icon_content.dart';
 import 'package:mybmicalculator/components/reusable_card.dart';
+import 'package:mybmicalculator/components/round_icon_button.dart';
 
 import '../constants.dart';
 
@@ -19,6 +20,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 160;
   int weight = 70;
+  int age = 25;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +72,7 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Text(
                     'HEIGHT',
-                    style: TextStyle(fontSize: 18, color: Color(0xFFEEE8E8)),
+                    style: labelTextStyle,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -79,10 +81,12 @@ class _InputPageState extends State<InputPage> {
                     children: [
                       Text(
                         height.toString(),
-                        style: TextStyle(
-                            fontSize: 50, fontWeight: FontWeight.w900),
+                        style: numberTextStyle,
                       ),
-                      Text('cm'),
+                      Text(
+                        'cm',
+                        style: labelTextStyle,
+                      ),
                     ],
                   ),
                   SliderTheme(
@@ -106,7 +110,6 @@ class _InputPageState extends State<InputPage> {
                         setState(() {
                           height = newValue.round();
                         });
-                        print(newValue);
                       },
                     ),
                   ),
@@ -123,13 +126,37 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('WEIGHT'),
+                        Text(
+                          'WEIGHT',
+                          style: labelTextStyle,
+                        ),
                         Text(
                           weight.toString(),
+                          style: numberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[],
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
                         )
                       ],
                     ),
@@ -138,6 +165,47 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: cActiveBGCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'AGE',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: numberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  if (age > 0) {
+                                    age--;
+                                  }
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  if (age >= 0) {
+                                    age++;
+                                  }
+                                });
+                              },
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
