@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mybmicalculator/components/bottom_button.dart';
 import 'package:mybmicalculator/components/reusable_card.dart';
 import 'package:mybmicalculator/constants.dart';
 
@@ -21,27 +22,52 @@ class ResultPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              child: Center(
-                child: Text(
-                  'Your Result',
-                  style: largeTitleTextStyle,
-                ),
+              child: Text(
+                'Your Result',
+                style: largeTitleTextStyle,
+                textAlign: TextAlign.center,
               ),
             ),
           ),
           Expanded(
+            flex: 5,
             child: ReusableCard(
               colour: cActiveBGCardColour,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(bmiResult),
-                  Text(resultText),
-                  Text(interpretation),
+                  Text(
+                    resultText,
+                    style: TextStyle(
+                      color: Color(0xFF00E6A1),
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    bmiResult,
+                    style: TextStyle(
+                      fontSize: 100.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    interpretation,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
                 ],
               ),
             ),
+          ),
+          BottomButton(
+            buttonTitle: 'RE-CALCULATE',
+            onTap: () {
+              Navigator.pop(context);
+            },
           )
         ],
       ),
