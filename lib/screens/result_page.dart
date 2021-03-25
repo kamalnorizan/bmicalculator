@@ -39,11 +39,17 @@ class ResultPage extends StatelessWidget {
                 children: [
                   Text(
                     resultText,
-                    style: TextStyle(
-                      color: Color(0xFF00E6A1),
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: resultText == 'Normal'
+                        ? TextStyle(
+                            color: Color(0xFF00E6A1),
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
+                          )
+                        : TextStyle(
+                            color: Color(0xFFFF0000),
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                   ),
                   Text(
                     bmiResult,
