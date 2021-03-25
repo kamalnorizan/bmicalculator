@@ -9,3 +9,8 @@ const labelTextStyle = TextStyle(
   fontSize: 18,
   color: Color(0xFFEEE8E8),
 );
+
+const largeTitleTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.bold,
+);
